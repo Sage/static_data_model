@@ -1,4 +1,5 @@
 require 'bundler/setup'
+require 'pry'
 require 'tableless_model'
 
 RSpec.configure do |config|
