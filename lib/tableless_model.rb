@@ -45,6 +45,17 @@ module TablelessModel
       end
     end
 
+    # Returns a specific model instance according to the given id
+    #
+    # @param [String] id the identifier of the instance
+    # @raise [ActiveRecord::RecordNotFound] if no attachment context type
+    #        was found for the given id
+    # @return [model class] the instance for the given id
+    def find(id)
+      all.find { |instance| instance.id == id } ||
+        raise(ActiveRecord::RecordNotFound, "Couldn't find #{self} with #{id}")
+    end
+
     attr_reader :attribute_names
 
     private
