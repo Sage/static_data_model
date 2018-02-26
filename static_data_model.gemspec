@@ -2,11 +2,11 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'tableless_model/version'
+require 'static_data_model/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'tableless_model'
-  spec.version       = TablelessModel::VERSION
+  spec.name          = 'static_data_model'
+  spec.version       = StaticDataModel::VERSION
   spec.authors       = ['Sage GmbH']
   spec.email         = []
 
@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Basic functionality for models to get initialised '\
                        'with static data and make them accessible with common '\
                        'finder methods'
-  spec.homepage      = 'https://github.com/Sage/tableless_model'
+  spec.homepage      = 'https://github.com/Sage/static_data_model'
   spec.license       = 'Apache 2.0'
 
   if spec.respond_to?(:metadata)

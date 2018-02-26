@@ -1,6 +1,6 @@
 require 'bundler/setup'
 require 'pry'
-require 'tableless_model'
+require 'static_data_model'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

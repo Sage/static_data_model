@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'tableless_model/version'
-require 'tableless_model/errors'
+require 'static_data_model/version'
+require 'static_data_model/errors'
 
 # Upon inclusion, provides basic static data model functionality:
 #
 # class A
-#   include TablelessModel
+#   include StaticDataModel
 #   self.data_store = [
 #     { id: 1, name: 'A1' },
 #     { id: 2, name: 'A2' }
@@ -17,7 +17,7 @@ require 'tableless_model/errors'
 #
 # A.all.first.id # => 1
 # A.all.last.name # => 'A2'
-module TablelessModel
+module StaticDataModel
   # Build a new instance of the model from the params Hash
   #
   # @param [Hash] hash The attributes to be set

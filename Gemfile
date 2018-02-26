@@ -2,5 +2,5 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-# Specify your gem's dependencies in tableless_model.gemspec
+# Specify your gem's dependencies in static_data_model.gemspec
 gemspec

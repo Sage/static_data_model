@@ -2,14 +2,14 @@
 
 require 'active_record'
 
-RSpec.describe TablelessModel do
+RSpec.describe StaticDataModel do
   it 'has a version number' do
-    expect(TablelessModel::VERSION).not_to be nil
+    expect(StaticDataModel::VERSION).not_to be nil
   end
 
   let(:dummy_class) do
     Class.new do
-      include TablelessModel
+      include StaticDataModel
 
       self.data_store = [
         {
@@ -58,7 +58,7 @@ RSpec.describe TablelessModel do
       end
 
       context 'and raises_activerecord_errors has never been called' do
-        it 'raises TablelessModel::Errors::RecordNotFound' do
+        it 'raises StaticDataModel::Errors::RecordNotFound' do
           expect { dummy_class.find(4) }
             .to raise_error(Errors::RecordNotFound, /with ID 4/)
         end
