@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'tableless_model/version'
+require 'tableless_model/errors'
 
 # Upon inclusion, provides basic static data model functionality:
 #
@@ -38,6 +39,13 @@ module TablelessModel
 
   # :nodoc:
   module ClassMethods
+    # Call in class context to make the model raise errors as ActiveRecord
+    # models do.
+    # Make sure to have required active_record elsewhere already.
+    def raises_activerecord_errors
+      @error_namespace = ::ActiveRecord
+    end
+
     # Returns all instances of the model as listed in the data_store
     def all
       @all ||= data_store.map do |attrs|
@@ -53,7 +61,8 @@ module TablelessModel
     # @return [model class] the instance for the given id
     def find(id)
       all.find { |instance| instance.id == id } ||
-        raise(ActiveRecord::RecordNotFound, "Couldn't find #{self} with #{id}")
+        raise(error_namespace::RecordNotFound,
+              "Couldn't find #{self} with ID #{id}")
     end
 
     attr_reader :attribute_names
@@ -70,6 +79,10 @@ module TablelessModel
     def attribute_names=(ary)
       @attribute_names = ary
       attr_reader(*@attribute_names)
+    end
+
+    def error_namespace
+      @error_namespace || Errors
     end
   end
 end

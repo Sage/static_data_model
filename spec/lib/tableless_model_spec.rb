@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'active_record'
+
 RSpec.describe TablelessModel do
   it 'has a version number' do
     expect(TablelessModel::VERSION).not_to be nil
@@ -38,14 +40,28 @@ RSpec.describe TablelessModel do
 
   describe '.find(id)' do
     context 'when found' do
-      it 'has found the object belonging to "id"' do
+      it 'returns the object belonging to "id"' do
         expect(dummy_class.find(2).name).to eq 'dummy 2'
       end
     end
 
     context 'when not found' do
-      it 'raises an error' do
-        expect { dummy_class.find(4) }.to raise_error
+      context 'and raises_activerecord_errors has been called on the class' do
+        before do
+          dummy_class.raises_activerecord_errors
+        end
+
+        it 'raises ActiveRecord::RecordNotFound' do
+          expect { dummy_class.find(4) }
+            .to raise_error(ActiveRecord::RecordNotFound, /with ID 4/)
+        end
+      end
+
+      context 'and raises_activerecord_errors has never been called' do
+        it 'raises TablelessModel::Errors::RecordNotFound' do
+          expect { dummy_class.find(4) }
+            .to raise_error(Errors::RecordNotFound, /with ID 4/)
+        end
       end
     end
   end
