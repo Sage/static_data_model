@@ -11,7 +11,7 @@ RSpec.describe StaticDataModel do
     Class.new do
       include StaticDataModel
 
-      self.data_store = [
+      self.model_data = [
         {
           id: 1, name: 'dummy 1'
         }, {
@@ -23,14 +23,14 @@ RSpec.describe StaticDataModel do
     end
   end
 
-  context 'when an attribute only figures in one object in the data_store' do
+  context 'when an attribute only figures in one object in the model_data' do
     it 'still is a valid attribute in every instance' do
       expect(dummy_class.new).to respond_to :desc
     end
   end
 
   describe '.all' do
-    it 'returns all the data defined in the data_store' do
+    it 'returns all the data defined in the model_data' do
       records = dummy_class.all
       expect(records.size).to be 3
       expect(records.first.name).to eq 'dummy 1'

@@ -7,7 +7,7 @@ require 'static_data_model/errors'
 #
 # class A
 #   include StaticDataModel
-#   self.data_store = [
+#   self.model_data = [
 #     { id: 1, name: 'A1' },
 #     { id: 2, name: 'A2' }
 #   ]
@@ -46,9 +46,9 @@ module StaticDataModel
       @error_namespace = ::ActiveRecord
     end
 
-    # Returns all instances of the model as listed in the data_store
+    # Returns all instances of the model as listed in the model_data
     def all
-      @all ||= data_store.map do |attrs|
+      @all ||= model_data.map do |attrs|
         new(attrs)
       end
     end
@@ -69,10 +69,10 @@ module StaticDataModel
 
     private
 
-    attr_reader :data_store
+    attr_reader :model_data
 
-    def data_store=(ary)
-      @data_store = ary
+    def model_data=(ary)
+      @model_data = ary
       self.attribute_names = ary.map(&:keys).flatten.uniq
     end
 
