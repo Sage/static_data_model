@@ -59,14 +59,14 @@ RSpec.describe StaticDataModel do
 
         it 'raises ActiveRecord::RecordNotFound' do
           expect { dummy_class.find(4) }
-            .to raise_error(ActiveRecord::RecordNotFound, /with ID 4/)
+            .to raise_error(ActiveRecord::RecordNotFound, /with 'id'=4/)
         end
       end
 
       context 'and raises_activerecord_errors has never been called' do
         it 'raises StaticDataModel::Errors::RecordNotFound' do
           expect { dummy_class.find(4) }
-            .to raise_error(Errors::RecordNotFound, /with ID 4/)
+            .to raise_error(Errors::RecordNotFound, /with 'id'=4/)
         end
       end
     end
