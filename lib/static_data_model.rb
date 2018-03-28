@@ -62,7 +62,7 @@ module StaticDataModel
     def find(id)
       all.find { |instance| instance.id == id } ||
         raise(error_namespace::RecordNotFound,
-              "Couldn't find #{self} with ID #{id}")
+              "Couldn't find #{self} with 'id'=#{id}")
     end
 
     attr_reader :attribute_names
