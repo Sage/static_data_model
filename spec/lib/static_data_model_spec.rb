@@ -29,6 +29,12 @@ RSpec.describe StaticDataModel do
     end
   end
 
+  context 'when initialised with unknown keys' do
+    it 'raises an exception' do
+      expect { dummy_class.new({ unknown: :foo }) }.to raise_error(/does not accept keys \[\:unknown\]/)
+    end
+  end
+
   describe '.all' do
     it 'returns all the data defined in the model_data' do
       records = dummy_class.all

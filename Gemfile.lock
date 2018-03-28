@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    static_data_model (0.1.0)
+    static_data_model (0.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -21,8 +21,10 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     diff-lcs (1.3)
+    docile (1.3.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    json (2.1.0)
     method_source (0.9.0)
     minitest (5.11.3)
     pry (0.11.3)
@@ -42,6 +44,11 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
+    simplecov (0.16.1)
+      docile (~> 1.1)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -55,7 +62,8 @@ DEPENDENCIES
   pry
   rake (~> 10.0)
   rspec (~> 3.0)
+  simplecov
   static_data_model!
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
