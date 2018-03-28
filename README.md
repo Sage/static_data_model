@@ -1,4 +1,4 @@
-# StaticDataModel
+# StaticDataModel [![Build Status](https://travis-ci.org/Sage/static_data_model.svg?branch=master)](https://travis-ci.org/Sage/static_data_model) [![Maintainability](https://api.codeclimate.com/v1/badges/3d6681f9b022278c95f7/maintainability)](https://codeclimate.com/github/Sage/static_data_model/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/3d6681f9b022278c95f7/test_coverage)](https://codeclimate.com/github/Sage/static_data_model/test_coverage) [![Gem Version](https://badge.fury.io/rb/static_data_model.svg)](https://badge.fury.io/rb/static_data_model)
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/static_data_model`. To experiment with that code, run `bin/console` for an interactive prompt.
 
