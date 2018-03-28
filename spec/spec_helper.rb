@@ -1,3 +1,8 @@
+require 'simplecov'
+SimpleCov.start do
+    add_filter 'spec/'
+end
+
 require 'bundler/setup'
 require 'pry'
 require 'static_data_model'
