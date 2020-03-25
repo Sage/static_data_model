@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    static_data_model (0.2.0)
+    static_data_model (0.2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -66,4 +66,4 @@ DEPENDENCIES
   static_data_model!
 
 BUNDLED WITH
-   1.16.1
+   1.17.3
